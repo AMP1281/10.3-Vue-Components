@@ -7,15 +7,21 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
+
                         <slot name="header"></slot>
+
                     </div>
 
                     <div class="modal-body d-flex flex-column justify-content-around align-items-center">
+
                         <slot name="body"></slot>
+
                     </div>
 
                     <div class="modal-footer">
+
                         <slot name="footer"></slot>
+                        
                     </div>
                     
                 </div>
