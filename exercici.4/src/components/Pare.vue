@@ -13,10 +13,11 @@
             </button>
         </template>
 
-        <template v-slot:body>
+        <template v-slot:body="slotProps">
             <h2 class="mb-4">Cambio de moneda</h2>
-            <input class="mb-5" v-model="euros" type="number" min="0" step="0.01" placeholder="Introduce euros €">
-            <p v-show="euros>0" class="position-absolute fixed-bottom mb-3">El cambio de {{euros}}€ en dolares son {{euros | Currency}}$</p>
+            <p>El cambio de {{ slotProps.numero }}€ en dolares son {{ slotProps.numeroCurrency }}$</p>
+            <p class="position-absolute fixed-bottom mb-3"></p>
+
         </template>
 
         <template v-slot:footer>
@@ -42,11 +43,15 @@ export default {
     components: {
         ModalBootstrap
     },
+
+    
+
     data () {
         return{
             showModal: false,
-            euros:''
-        }
+            variable: '',
+            mostrar:false
+            }
     },
     methods:{
         openModal(){
@@ -61,11 +66,8 @@ export default {
             this.euros = ''
         }
     },
-    filters:{
-        Currency(euros){
-            return euros*1.23
-        }
-    }
+    
+    
 }
 
 </script>
